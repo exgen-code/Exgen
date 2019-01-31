@@ -5,3 +5,8 @@ You will then write code to solve this (our code has a lot of solutions, but it 
 Our program will then insert random values and will use the code you've written to generate new exam papers.
 
 The idea is that you write one example, but your students can get hundreds of examples of the same question.
+
+There's this idea where if a student only gets 1 mock paper and there's only 1 question on a topic their brain will trick them into
+believing that they know how to answer the question, but in actual fact their brain has just memorised the answer.
+
+Our program is created in an attempt to help students learn and not just memorise answers to mock papers.
