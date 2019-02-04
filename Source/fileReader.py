@@ -24,8 +24,8 @@ def identifyVariables(question):
 def userChangeVariables(dictOfVars):
     # THIS IS THE USERS CODE
     # this is what they've written they want their code to do
-    retrunVal = dictOfVars['Y'] + dictOfVars['X']
-    return retrunVal
+    returnVal = dictOfVars['Y'] + dictOfVars['X']
+    return returnVal
 
 def writeQuestion(question, answer, dictVariables):
     # TODO find some way so the user doesnt have to rewrite what the variables are here :)
