@@ -10,7 +10,7 @@ def readFile(fileName):
 def identifyVariables(question):
     # identifies the variables in the question
     variables = []
-    hiddenVariables = []
+    hiddenConstants = []
     dictOfVars = {}
     # splits it up into words
     for i in question.split(" "):
@@ -22,9 +22,9 @@ def identifyVariables(question):
             dictOfVars[i[1::]] = random.randint(1, 50)
     
     if len(question.split("{")) > 1:
-        hiddenVariablesString = question.split("{")[1].split("}")[0]
-        for variableDefinitions in  hiddenVariablesString.split(","):
-            dictOfVars[variableDefinitions.split("=")[0]] = variableDefinitions.split("=")[1]
+        constantVariablesString = question.split("{")[1].split("}")[0]
+        for constantDefinitions in  constantVariablesString.split(","):
+            dictOfVars[constantDefinitions.split("=")[0]] = constantDefinitions.split("=")[1]
             
     return dictOfVars
 
