@@ -37,6 +37,10 @@ def userChangeVariables(dictOfVars):
 def writeQuestion(question, answer, dictVariables):
     # TODO find some way so the user doesnt have to rewrite what the variables are here :)
     returnString = []
+
+    if len(question.split("{")) > 1:
+        a = question.split("{")[0] + question.split("}")[1]
+
     file_read = a.split(" ")
     for value in file_read:
         if value[0] != "$":
