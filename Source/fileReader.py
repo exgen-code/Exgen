@@ -30,7 +30,7 @@ def userChangeVariables(dictOfVars):
 def writeQuestion(question, answer, dictVariables):
     # TODO find some way so the user doesnt have to rewrite what the variables are here :)
     returnString = []
-    file_read = a.split(" ")
+    file_read = question.split(" ")
     for value in file_read:
         if value[0] != "$":
             returnString.append(value)
