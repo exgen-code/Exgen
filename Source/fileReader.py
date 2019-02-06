@@ -16,10 +16,9 @@ def identifyVariables(question):
     for i in question.split(" "):
         # if word starts with $, it's a variable
         if i[0] == "$":
-            variables.append(i)
-            # creates a dict of variables and randomly assigns it a num between 1 and 50
-            # this number isn't set in stone and is meant to be set by the user somehow
-            dictOfVars[i[1::]] = random.randint(1, 50)
+            variableName = i.split('$')[1]
+            variables.append(variableName)
+            dictOfVars[variableName] = ""
     
     if len(question.split("{")) > 1:
         hiddenConstantsString = question.split("{")[1].split("}")[0]
@@ -31,6 +30,11 @@ def identifyVariables(question):
 def userChangeVariables(dictOfVars):
     # THIS IS THE USERS CODE
     # this is what they've written they want their code to do
+    # creates a dict of variables and randomly assigns it a num between 1 and 50
+    # this number isn't set in stone and is meant to be set by the user somehow
+    for i in dictOfVars:
+        if (dictOfVars[i] == ""):
+            dictOfVars[i] = random.randint(int(dictOfVars['minbound']), int(dictOfVars['maxbound']))
     returnVal = dictOfVars['Y'] + dictOfVars['X']
     return returnVal
 
