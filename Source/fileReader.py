@@ -43,7 +43,7 @@ def writeQuestion(question, answer, dictVariables):
     returnString = []
 
     if len(question.split("{")) > 1:
-        a = question.split("{")[0] + question.split("}")[1]
+        question = question.split("{")[0] + question.split("}")[1]
 
     file_read = question.split(" ")
     for value in file_read:
