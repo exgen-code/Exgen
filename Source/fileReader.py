@@ -1,4 +1,5 @@
 import random
+from addition import *
 def readFile(fileName):
     # reads in the file, reads every line in the file using readLines
     # RETURNS 'What is $X + $Y equal to?'
@@ -27,17 +28,6 @@ def identifyVariables(question):
             
     return dictOfVars
 
-def userChangeVariables(dictOfVars):
-    # THIS IS THE USERS CODE
-    # this is what they've written they want their code to do
-    # creates a dict of variables and randomly assigns it a num between 1 and 50
-    # this number isn't set in stone and is meant to be set by the user somehow
-    for i in dictOfVars:
-        if (dictOfVars[i] == ""):
-            dictOfVars[i] = random.randint(int(dictOfVars['minbound']), int(dictOfVars['maxbound']))
-    returnVal = dictOfVars['Y'] + dictOfVars['X']
-    return returnVal
-
 def writeQuestion(question, answer, dictVariables):
     # TODO find some way so the user doesnt have to rewrite what the variables are here :)
     returnString = []
@@ -62,10 +52,12 @@ def writeQuestion(question, answer, dictVariables):
 
 a = readFile('example1.txt')
 print("readFile is equal to", a)
-b = identifyVariables(a)
+
+varDict = addition.generateNumbers(identifyVariables(a))
+print(addition.add(varDict))
+b,c = addition.generate(identifyVariables(a))
 import pprint
 pprint.pprint(b)
-c = userChangeVariables(b)
 print("userChangeVariables is equal to", c)
 
 question_complete = writeQuestion(a, c, b)
