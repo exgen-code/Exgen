@@ -1993,7 +1993,7 @@
 											"top": 531.5,
 											"width": 155,
 											"height": 13,
-											"text": "Check generated exam"
+											"text": "View generated exam"
 										},
 										{
 											"_type": "LabelView",
@@ -8017,7 +8017,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFo4rSHXO2tMQA="
 					},
-					"name": "Check generated exam",
+					"name": "View generated exam",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
