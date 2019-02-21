@@ -25,7 +25,8 @@ def identifyVariables(question):
 
     if len(question.split("{")) > 1:
         hiddenConstantsString = question.split("{")[1].split("}")[0]
-        for constantDefinitions in hiddenConstantsString.split(","):
+        for constantDefinitions in \
+                hiddenConstantsString.replace(' ', '').split(","):
             dictOfVars[constantDefinitions.split("=")[0]] \
                 = constantDefinitions.split("=")[1]
 

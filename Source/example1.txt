@@ -1,1 +1,1 @@
-What is $X + $Y equal to? {maxbound=20,minbound=10}
+What is $X + $Y equal to? {maxbound = 20, minbound = 10}
