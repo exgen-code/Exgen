@@ -1,5 +1,5 @@
 import random
-from addition import *
+from addition import addition
 def readFile(fileName):
     # reads in the file, reads every line in the file using readLines
     # RETURNS 'What is $X + $Y equal to?'
