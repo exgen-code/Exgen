@@ -54,9 +54,7 @@ a = readFile('example1.txt')
 print("readFile is equal to", a)
 
 additionQuestion = addition()
-print(identifyVariables(a))
 varDict = additionQuestion.generateNumbers(identifyVariables(a))
-print(additionQuestion.add(varDict))
 b,c = additionQuestion.generate(identifyVariables(a))
 import pprint
 pprint.pprint(b)
