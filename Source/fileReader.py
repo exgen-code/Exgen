@@ -58,9 +58,8 @@ def writeQuestion(question, answer, dictVariables):
 a = readFile('example1.txt')
 print("readFile is equal to", a)
 
-additionQuestion = addition()
-varDict = additionQuestion.generateNumbers(identifyVariables(a))
-b, c = additionQuestion.generate(identifyVariables(a))
+varDict = addition.generateNumbers(identifyVariables(a))
+b, c = addition.generate(identifyVariables(a))
 pprint.pprint(b)
 print("userChangeVariables is equal to", c)
 
