@@ -57,7 +57,7 @@ additionQuestion = addition()
 print(identifyVariables(a))
 varDict = additionQuestion.generateNumbers(identifyVariables(a))
 print(additionQuestion.add(varDict))
-b,c = additionQuestion.generate(indentifyVariables(a))
+b,c = additionQuestion.generate(identifyVariables(a))
 import pprint
 pprint.pprint(b)
 print("userChangeVariables is equal to", c)
