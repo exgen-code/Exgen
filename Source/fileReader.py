@@ -46,7 +46,6 @@ def writeQuestion(question, answer, dictVariables):
                 returnString.append(dictVariables['Y'])
     returnString.append("\n " + str(answer))            
 
-
     return " ".join(str(x) for x in returnString)
 
 
@@ -62,4 +61,3 @@ print("userChangeVariables is equal to", c)
 
 question_complete = writeQuestion(a, c, b)
 print(question_complete)
-
