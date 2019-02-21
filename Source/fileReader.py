@@ -14,7 +14,6 @@ def readFile(fileName):
 def identifyVariables(question):
     # identifies the variables in the question
     variables = []
-    hiddenConstants = []
     dictOfVars = {}
     # splits it up into words
     for i in question.split(" "):
