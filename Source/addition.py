@@ -7,7 +7,7 @@ class addition:
         pass
 
     def add(varDict):
-        return varDict['Y'] + varDict['X']
+        return varDict['term1'] + varDict['term2']
 
     def generateNumbers(varDict):
         for i in varDict:

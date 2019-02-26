@@ -46,7 +46,7 @@ def writeQuestion(question, answer, dictVariables):
             returnString.append(value)
         else:
             for i in dictVariables:
-                if value[1] == i:
+                if value[1::] == i:
                     returnString.append(dictVariables[i])
     returnString.append("\n " + str(answer))
 
