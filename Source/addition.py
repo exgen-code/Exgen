@@ -7,9 +7,16 @@ class addition:
         pass
 
     def add(varDict):
+        """ Returns the sum of the values with keys
+        term1 and term2 in the dictionary
+        """
         return varDict['term1'] + varDict['term2']
 
     def generateNumbers(varDict):
+        """Generates random numbers (bounded by minbound and maxbound)
+        for every key without a value in the variable dictionary
+        Returns the modified variable dictionary
+        """
         for i in varDict:
             if (varDict[i] == ""):
                 varDict[i] = random.randint(int(varDict['minbound']),
@@ -17,5 +24,8 @@ class addition:
         return varDict
 
     def generate(varDict):
+        """Fills the variable dictionary and generates the correct answer
+        Returns a tuple containing the filled variable dictionary and the
+        correct answer, respectively"""
         varDict = addition.generateNumbers(varDict)
         return(varDict, addition.add(varDict))
