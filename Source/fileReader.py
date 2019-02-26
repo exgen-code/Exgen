@@ -70,13 +70,13 @@ def writeQuestion(question, answer, dictVariables):
     return " ".join(str(x) for x in returnString)
 
 
-a = readFile('example1.txt')
-print("readFile is equal to", a)
+questionInput = readFile('example1.txt')
+print("readFile is equal to", questionInput)
 
-varDict = addition.generateNumbers(identifyVariables(a))
-b, c = addition.generate(identifyVariables(a))
-pprint.pprint(b)
-print("userChangeVariables is equal to", c)
+varDict = addition.generateNumbers(identifyVariables(questionInput))
+varDict, answer = addition.generate(identifyVariables(questionInput))
+pprint.pprint(varDict)
+print("userChangeVariables is equal to", answer)
 
-question_complete = writeQuestion(a, c, b)
+question_complete = writeQuestion(questionInput, answer, varDict)
 print(question_complete)
