@@ -3,8 +3,9 @@ import pprint
 
 
 def readFile(fileName):
-    # reads in the file, reads every line in the file using readLines
-    # RETURNS 'What is $X + $Y equal to?'
+    """ reads in the file, reads every line in the file using readLines
+    RETURNS 'What is $X + $Y equal to?'
+    """
     file = open(fileName, 'r')
     contentFile = file.readlines()
 
@@ -12,7 +13,7 @@ def readFile(fileName):
 
 
 def identifyVariables(question):
-    # identifies the variables in the question
+    """identifies the variables in the question"""
     variables = []
     dictOfVars = {}
     # splits it up into words
