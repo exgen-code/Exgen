@@ -73,6 +73,11 @@ def writeQuestion(question, answer, dictVariables):
 questionInput = readFile('example1.txt')
 print("readFile is equal to", questionInput)
 
+# This next line will use the code the user provides, it is currently
+# using the example addition class
+# Gives the variables dictionary to addition.generate, which returns a tuple
+# containing (filled dictionary of variables,
+#             the correct answer to the question)
 varDict, answer = addition.generate(identifyVariables(questionInput))
 pprint.pprint(varDict)
 print("userChangeVariables is equal to", answer)
