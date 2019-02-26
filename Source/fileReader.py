@@ -24,10 +24,18 @@ def identifyVariables(question):
             variables.append(variableName)
             dictOfVars[variableName] = ""
 
+    # If there is a '{' in the question, there are hidden constants in
+    # the question
     if len(question.split("{")) > 1:
+        # Everything between a { and a } is a series of definitions of
+        # hidden contants
         hiddenConstantsString = question.split("{")[1].split("}")[0]
+        # Hiddent constant definitions are comma separated
         for constantDefinitions in \
                 hiddenConstantsString.replace(' ', '').split(","):
+            # Whatever is on the left of the '=' is the name (key) of
+            # the constant and whatever is in the right is the value
+            # Add them to the dictionary
             dictOfVars[constantDefinitions.split("=")[0]] \
                 = constantDefinitions.split("=")[1]
 
@@ -38,14 +46,22 @@ def writeQuestion(question, answer, dictVariables):
     # TODO Make this code work for multiple types of questions
     returnString = []
 
+    # Remove the hidden constant definitions (between '{' and '}')
+    # from the output questions
     if len(question.split("{")) > 1:
         question = question.split("{")[0] + question.split("}")[1]
 
+    # Separate question by words
     file_read = question.split(" ")
     for value in file_read:
+        # If word does not begin with a $, it is not a variable
+        # append it normally
         if value[0] != "$":
             returnString.append(value)
         else:
+            # Check if any key in the dictionary matches whatever
+            # is after the $, and if so substitute the word with the
+            # value in the dictionary by appending it to the question
             for i in dictVariables:
                 if value[1::] == i:
                     returnString.append(dictVariables[i])
