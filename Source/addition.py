@@ -19,8 +19,18 @@ class addition:
         """
         for i in varDict:
             if (varDict[i] == ""):
-                varDict[i] = random.randint(int(varDict['minbound']),
-                                            int(varDict['maxbound']))
+                if ('minbound' in varDict and 'maxbound' in varDict):
+                    varDict[i] = random.randint(int(varDict['minbound']),
+                                                int(varDict['maxbound']))
+                if ('minbound' in varDict and 'maxbound' not in varDict):
+                    varDict[i] = random.randint(int(varDict['minbound']),
+                                                50)
+                if ('minbound' not in varDict and 'maxbound' in varDict):
+                    varDict[i] = random.randint(1,
+                                                int(varDict['maxbound']))
+                if ('minbound' not in varDict and 'maxbound' not in varDict):
+                    varDict[i] = random.randint(1,
+                                                50)
         return varDict
 
     def generate(varDict):

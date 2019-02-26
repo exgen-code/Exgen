@@ -1,1 +1,1 @@
-What is $term1 + $term2 equal to? {maxbound = 20, minbound = 10}
+What is $term1 + $term2 equal to? {maxbound = 20}
