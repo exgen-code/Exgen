@@ -45,10 +45,9 @@ def writeQuestion(question, answer, dictVariables):
         if value[0] != "$":
             returnString.append(value)
         else:
-            if value[1] == "X":
-                returnString.append(dictVariables['X'])
-            if value[1] == "Y":
-                returnString.append(dictVariables['Y'])
+            for i in dictVariables:
+                if value[1] == i:
+                    returnString.append(dictVariables[i])
     returnString.append("\n " + str(answer))
 
     return " ".join(str(x) for x in returnString)
