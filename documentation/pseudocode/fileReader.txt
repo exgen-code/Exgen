@@ -1,0 +1,51 @@
+import user's code
+import pprint
+
+define function fileReader(takes fileName)
+	open file called fileName
+	define contentFile as the text content of the file
+
+	return contentFile
+
+define function identifyVariables(takes question)
+	create empty list called variables
+	create empty list called dictOfVars
+
+	for each word separated by a space in question:
+		if the word begins with "$":
+			set variableName as the string after the "$" before a space
+			append variableName to variables
+			create empty entry in dictOfVars with key variableName
+	
+	if there is a "{" in question
+		assign the string between the "{" and the "}" to a variable called hiddenConstantsString
+		for each string separated by a "," in hiddenConstantsString with whitespaces deleted
+			add whatever is on the left of the "=" as a key to dictOfVars and whatever is on the right of the "=" as the value in dictOfVars
+	
+	return dictOfVars
+
+define function writeQuestion(takes question, answer and dictOfVariables)
+	create empty list called returnString
+
+	if there is a "{" in question
+		remove the "{", the "}" and whatever is in between from the question
+	
+	for each word separated by a space in question:
+		if the word does not begin with "$":
+			append the word to the return string
+		else:
+			for every variable in dictVariables
+				if the word after the "$" matches the key of a variable:
+					append the value in the dictionary to returnString
+	append a new line with answer attached to returnString
+	return returnString with a whitespace between every element as a string
+
+define questionInput as the output of readFile when passing "example1.txt" as a string
+print "readFile is equal to" along with questionInput
+
+set varDict as the first element and answer as the second in the tuple returned by calling addition.generate and passing the dictionary returned by identifyVariables when passing questionInput
+
+print the varDict dictionary
+print "userChangeVariables is equal to" and the answer
+create variable question_complete that holds the output of writeQuestion when passing questionInput, answer and varDict
+print question_complete
