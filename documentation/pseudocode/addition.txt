@@ -1,6 +1,9 @@
 define function add (takes varDict)
 	return element in key term1 + element in key term2 from varDict
 
+getAnswers(takes n)
+	returns (a tuple containing n and a series of possible wrong answers based on n)
+
 define function generateNumbers(takes varDict)
 	for each key in varDict
 		if there is no element in the key
