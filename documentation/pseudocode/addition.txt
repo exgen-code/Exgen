@@ -1,0 +1,20 @@
+define function add (takes varDict)
+	return element in key term1 + element in key term2 from varDict
+
+define function generateNumbers(takes varDict)
+	for each key in varDict
+		if there is no element in the key
+			if there is a minbound and maxbound in varDict
+				create a random integer between minbound and maxboundand put it in the dictionary with the key
+			if there is a minbound but no maxbound in varDict
+				create a random integer between minbound and 50 and put it in the dictionary with the key
+			if there is no minbound but there is a maxbound in varDict
+				create a random integer between 1 and maxbound and put it in the dictionary with the key
+			if there is no minbound and no maxbound in varDict
+				create a random integer between 1 and maxbound and put it in the dictionary with the key
+
+	return varDict
+
+define function generate(takes varDict)
+	update varDict using generateNumbers
+	return a tuple containing (the updated varDict, the output of getAnswers when passing the output of add when passing varDict)
