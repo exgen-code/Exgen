@@ -12,6 +12,9 @@ class addition:
         """
         return varDict['term1'] + varDict['term2']
 
+    def getAnswers(n):
+        return (int(n-(n/10)), int(n-(n/4)), n, int(n+(n/10)), int(n-(n/4)))
+
     def generateNumbers(varDict):
         """Generates random numbers (bounded by minbound and maxbound)
         for every key without a value in the variable dictionary
@@ -38,4 +41,6 @@ class addition:
         Returns a tuple containing the filled variable dictionary and the
         correct answer, respectively"""
         varDict = addition.generateNumbers(varDict)
-        return(varDict, addition.add(varDict))
+        answer = addition.add(varDict)
+        print(addition.getAnswers(answer))
+        return(varDict, answer)
