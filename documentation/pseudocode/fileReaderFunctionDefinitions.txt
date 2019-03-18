@@ -1,6 +1,6 @@
 readFile:
 
-	takes: fileName (a path for the question text file)
+	takes: fileName (a path for a question text file)
 
 	opens the file and reads the contents
 
@@ -19,3 +19,17 @@ writeQuestion:
 	Removes hidden constant definitions from the question string and substitutes the varaible definitions for their values in the dictionary
 
 	returns: Procedurally generated question string with the variables filled
+
+getQuestion:
+	takes: path (a path for a question text file)
+
+	serves as a wrapper and invokes the other functions in the file to generate the final question
+
+	returns: The question with values instead of variables and the answers to the question
+
+exportToPDF:
+	takes: text (string or text file) and outpath (the path of the output PDF file that will be saved)
+
+	converts the text from latex into a pdf file and saves it at the defined path
+
+	returns: nothing
