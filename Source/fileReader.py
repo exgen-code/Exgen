@@ -70,17 +70,23 @@ def writeQuestion(question, answer, dictVariables):
     return " ".join(str(x) for x in returnString)
 
 
-questionInput = readFile('example1.txt')
-print("readFile is equal to", questionInput)
+def getQuestion(path):
+    questionInput = readFile(path)
 
-# This next line will use the code the user provides, it is currently
-# using the example addition class
-# Gives the variables dictionary to addition.generate, which returns a tuple
-# containing (filled dictionary of variables,
-#             the correct answer to the question)
-varDict, answer = addition.generate(identifyVariables(questionInput))
-pprint.pprint(varDict)
+    # This next line will use the code the user provides, it is currently
+    # using the example addition class
+    # Gives the variables dictionary to addition.generate,
+    # which returns a tuple containing (filled dictionary of variables,
+    # the correct answer to the question)
+    varDict, answer = addition.generate(identifyVariables(questionInput))
+
+    question_complete = writeQuestion(questionInput, answer, varDict)
+    return question_complete
+
+
+path = 'example1.txt'
+print("readFile is equal to", readFile(path))
+varDict, answer = addition.generate(identifyVariables(readFile(path)))
 print("userChangeVariables is equal to", answer)
-
-question_complete = writeQuestion(questionInput, answer, varDict)
-print(question_complete)
+pprint.pprint(varDict)
+print(getQuestion('example1.txt'))
