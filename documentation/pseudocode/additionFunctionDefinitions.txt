@@ -7,11 +7,14 @@ add:
 
 generateNumbers:
 	takes: 	variable dictionary
+
 	Generates terms for the empty values in the dictionary
+
 	returns: filled variable dictionary
 
 generate:
 	takes: variable dictionary
-	uses previously defined functions to generate the terms and the correct answer
-	returns: a tuple containing a filled dictionayr of variables and the correct answer
 
+	uses previously defined functions to generate the terms and the correct answer
+
+	returns: a tuple containing a filled dictionary of variables and the correct answer
