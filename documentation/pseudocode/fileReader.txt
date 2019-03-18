@@ -40,12 +40,9 @@ define function writeQuestion(takes question, answer and dictOfVariables)
 	append a new line with answer attached to returnString
 	return returnString with a whitespace between every element as a string
 
-define questionInput as the output of readFile when passing "example1.txt" as a string
-print "readFile is equal to" along with questionInput
-
-set varDict as the first element and answer as the second in the tuple returned by calling addition.generate and passing the dictionary returned by identifyVariables when passing questionInput
-
-print the varDict dictionary
-print "userChangeVariables is equal to" and the answer
-create variable question_complete that holds the output of writeQuestion when passing questionInput, answer and varDict
-print question_complete
+define function getQuestion(takes path)
+	define questionInput as the output of readFile when passing path as an argument
+	
+	set varDict as the first element and answer as the second in the tuple returned by calling addition.generate and passing the dictionary returned by identifyVariables when passing questionInput
+	
+	create variable question_complete that holds the output of writeQuestion when passing questionInput, answer and varDict
