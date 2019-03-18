@@ -72,6 +72,7 @@ def writeQuestion(question, answer, dictVariables):
 
 def getQuestion(path):
     questionInput = readFile(path)
+    print("readFile is equal to", questionInput)
 
     # This next line will use the code the user provides, it is currently
     # using the example addition class
@@ -79,14 +80,12 @@ def getQuestion(path):
     # which returns a tuple containing (filled dictionary of variables,
     # the correct answer to the question)
     varDict, answer = addition.generate(identifyVariables(questionInput))
+    print("userChangeVariables is equal to", answer)
+    pprint.pprint(varDict)
 
     question_complete = writeQuestion(questionInput, answer, varDict)
     return question_complete
 
 
 path = 'example1.txt'
-print("readFile is equal to", readFile(path))
-varDict, answer = addition.generate(identifyVariables(readFile(path)))
-print("userChangeVariables is equal to", answer)
-pprint.pprint(varDict)
 print(getQuestion('example1.txt'))
