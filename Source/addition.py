@@ -14,7 +14,7 @@ class addition:
 
     def getAnswers(n):
         answers = {}
-        while(len(answers) != 4):
+        while(len(answers) < 4):
             deviation = random.randint(int(-(n/4)), int(n/4))
             if(deviation != 0):
                 answers[n + deviation] = False
