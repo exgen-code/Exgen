@@ -1,4 +1,5 @@
 from addition import addition
+from random import shuffle
 import pprint
 
 
@@ -42,7 +43,7 @@ def identifyVariables(question):
     return dictOfVars
 
 
-def writeQuestion(question, answer, dictVariables):
+def writeQuestion(question, dictVariables):
     # TODO Make this code work for multiple types of questions
     returnString = []
 
@@ -65,9 +66,25 @@ def writeQuestion(question, answer, dictVariables):
             for i in dictVariables:
                 if value[1::] == i:
                     returnString.append(dictVariables[i])
-    returnString.append("\n " + str(answer))
 
     return " ".join(str(x) for x in returnString)
+
+
+def shuffleAnswers(answers):
+    answerList = list(answers.items())
+    shuffle(answerList)
+    answers = dict(answerList)
+    return(answers)
+
+
+def writeAnswers(answers):
+    returnString = []
+    answers = shuffleAnswers(answers)
+    print(answers)
+    for i in answers:
+        returnString.append(i)
+
+    return "\n".join(str(x) for x in returnString)
 
 
 def getQuestion(path):
@@ -83,9 +100,13 @@ def getQuestion(path):
     print("userChangeVariables is equal to", answer)
     pprint.pprint(varDict)
 
-    question_complete = writeQuestion(questionInput, answer, varDict)
-    return question_complete
+    question = writeQuestion(questionInput, varDict)
+    answers = writeAnswers(answer)
+    return question, answers
 
 
 path = 'example1.txt'
-print(getQuestion('example1.txt'))
+question, answers = getQuestion('example1.txt')
+print('\n')
+print(question)
+print(answers)
