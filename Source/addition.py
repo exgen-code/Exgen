@@ -13,7 +13,13 @@ class addition:
         return varDict['term1'] + varDict['term2']
 
     def getAnswers(n):
-        return (int(n-(n/10)), int(n-(n/4)), n, int(n+(n/10)), int(n-(n/4)))
+        answers = {}
+        answers[int(n-(n/10))] = False
+        answers[int(n-(n/4))] = False
+        answers[n] = True
+        answers[int(n+(n/4))] = False
+        answers[int(n+(n/10))] = False
+        return(answers)
 
     def generateNumbers(varDict):
         """Generates random numbers (bounded by minbound and maxbound)
@@ -43,4 +49,4 @@ class addition:
         varDict = addition.generateNumbers(varDict)
         answer = addition.add(varDict)
         print(addition.getAnswers(answer))
-        return(varDict, answer)
+        return(varDict, addition.getAnswers(answer))
