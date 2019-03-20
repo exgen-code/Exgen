@@ -48,5 +48,4 @@ class addition:
         correct answer, respectively"""
         varDict = addition.generateNumbers(varDict)
         answer = addition.add(varDict)
-        print(addition.getAnswers(answer))
         return(varDict, addition.getAnswers(answer))
