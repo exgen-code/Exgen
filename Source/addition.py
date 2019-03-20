@@ -14,11 +14,11 @@ class addition:
 
     def getAnswers(n):
         answers = {}
-        answers[int(n-(n/10))] = False
-        answers[int(n-(n/4))] = False
+        while(len(answers) != 4):
+            deviation = random.randint(int(-(n/4)), int(n/4))
+            if(deviation != 0):
+                answers[n + deviation] = False
         answers[n] = True
-        answers[int(n+(n/4))] = False
-        answers[int(n+(n/10))] = False
         return(answers)
 
     def generateNumbers(varDict):
@@ -35,10 +35,10 @@ class addition:
                     varDict[i] = random.randint(int(varDict['minbound']),
                                                 50)
                 if ('minbound' not in varDict and 'maxbound' in varDict):
-                    varDict[i] = random.randint(1,
+                    varDict[i] = random.randint(10,
                                                 int(varDict['maxbound']))
                 if ('minbound' not in varDict and 'maxbound' not in varDict):
-                    varDict[i] = random.randint(1,
+                    varDict[i] = random.randint(10,
                                                 50)
         return varDict
 
