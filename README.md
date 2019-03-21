@@ -21,3 +21,8 @@ Our program is created in an attempt to help students learn and not just memoris
 # Who made ExGen?
 
 Claire, Steffan, Luke, Geng, Yales and Brandon made ExGen for Year 2 Semester 2 group project for Computer Science at the University of Liverpool.
+
+# How do I use this?
+
+ExGen (this repo) is the core program. It's the program to generate answers for questions. We've implemented our own website, which you can see here:
+https://github.com/exgen-code/ExGen-Client
