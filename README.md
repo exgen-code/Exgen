@@ -27,6 +27,6 @@ Claire, Steffan, Luke, Geng, Yales and Brandon made ExGen for Year 2 Semester 2 
 ExGen (this repo) is the core program. It's the program to generate answers for questions. We've implemented our own website, which you can see here:
 https://github.com/exgen-code/ExGen-Client
 
-# Why is your documentation so good??? Why do you have like 50 files in /documentation ?
 
-This is a university project being forced into the waterfall method. We were forced to do that.
+# Who owns ExGen
+Us, until our university wants to sell it - then they own it. It's a group project for second year computer science, we don't have a choice 
