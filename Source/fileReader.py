@@ -73,8 +73,7 @@ def writeQuestion(question, dictVariables):
 def shuffleAnswers(answers):
     answerList = list(answers.items())
     shuffle(answerList)
-    answers = dict(answerList)
-    return(answers)
+    return(dict(answerList))
 
 
 def writeAnswers(answers):
