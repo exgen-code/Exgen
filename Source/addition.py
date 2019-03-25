@@ -13,6 +13,14 @@ class addition:
         return varDict['term1'] + varDict['term2']
 
     def getAnswers(n):
+        """ Creates a dictionary for the answers and generates wrong
+        answers that are the right answer plus a random number
+        between (-)25% of the right answer and 25% of the right answer
+        This will loop until 4 distinct wrong answers are generated
+        The answers will be keys that have boolean elements based on whether
+        they are correct or incorrect (true or false)
+        Returns a dictionary of answers
+        """
         answers = {}
         while(len(answers) < 4):
             deviation = random.randint(int(-(n/4)), int(n/4))
