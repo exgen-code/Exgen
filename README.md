@@ -1,3 +1,4 @@
+![img](https://www.exgen.xyz/exgen.png)
 # What is ExGen?
 Exgen is a tool for procedurally generating Computer Science & Mathematics exam papers.
 The general idea is that you'll write a question with variables instead of numbers, such as "What is X + Y?".
