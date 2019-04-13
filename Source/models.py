@@ -7,8 +7,9 @@ from sqlalchemy.ext.declarative import declarative_base
 
 # sort this out later
 Base = declarative_base()
-# Create engine when know how to
-# engine = create_engine('mysql+pymysql')
+engine = create_engine('mysql://username:password@localhost/Database') #Ask steffan for username, password and database. Dont want this public on github
+conn = engine.connect()
+trans = conn.begin()
 
 class User(Base):
     __tablename__ = "User"
@@ -102,5 +103,3 @@ t_Variable_Question = Table(
     Column('QuestionTemplateID', ForeignKey('Question.QuestionTemplateID'), primary_key=True, nullable=False, index=True),
     Column('QuestionID', ForeignKey('Answered.QuestionID'), primary_key=True, nullable=False, index=True)
 )
-
-
