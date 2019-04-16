@@ -8,6 +8,7 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 engine = create_engine('mysql://exgensql:yKH2T&%u~L5<@localhost/EXGenDB')
 
+
 class User(Base):
     __tablename__ = "User"
     UserID = Column(Integer, autoincrement=True, primary_key=True, unique=True, nullable=False)
@@ -19,6 +20,7 @@ class User(Base):
     Student = relationship("Student")
     Answered = relationship("Answered")
 
+
 class Professor(Base):
     __tablename__ = "Professor"
     ProfessorID = Column(Integer, autoincrement=True, primary_key=True, unique=True, nullable=False)
@@ -28,6 +30,7 @@ class Professor(Base):
     UserID = Column(ForeignKey('User.UserID'), primary_key=False, nullable=False, index=True)
     User = relationship('User')
 
+
 class Student(Base):
     __tablename__ = "Student"
     StudentID = Column(Integer, autoincrement=True, primary_key=True, unique=True, nullable=False)
@@ -35,13 +38,15 @@ class Student(Base):
     UserID = Column(ForeignKey('User.UserID'), primary_key=False, nullable=False, index=True)
     User = relationship('User')
 
-class Module(Base):
-    __tablename__ = "Module"
+
+class CourseModule(Base):
+    __tablename__ = "CourseModule"
     ModuleID = Column(Integer, autoincrement=True, primary_key=True, unique=True, nullable=False)
     ModuleName = Column(String(128), nullable=False)
     ModuleDescription = Column(String(128))
     ModuleCode = Column(Integer, unique=True, nullable=False)
     Exam = relationship('Exam')
+
 
 class Exam(Base):
     __tablename__ = "Exam"
@@ -50,8 +55,9 @@ class Exam(Base):
     Description = Column(String(128))
     Enabled = Column(Boolean, nullable=False)
 
-    ModuleID = Column(ForeignKey('Module.ModuleID'), primary_key=False, nullable=False, index=True)
-    Module = relationship('Module')
+    ModuleID = Column(ForeignKey('CourseModule.ModuleID'), primary_key=False, nullable=False, index=True)
+    CourseModule = relationship('CourseModule')
+
 
 class Question(Base):
     __tablename__ = "Question"
@@ -60,11 +66,13 @@ class Question(Base):
     SolutionCode = Column(String(128), nullable=False)
     Enabled = Column(Boolean, nullable=False)
 
+
 class Variable(Base):
     __tablename__ = "Variable"
     VariableID = Column(Integer, autoincrement=True, primary_key=True, unique=True, nullable=False)
     VariableName = Column(String(32), nullable=False)
     VariableValue = Column(Integer, nullable=False)
+
 
 class Answered(Base):
     __tablename__ = "Answered"
@@ -74,31 +82,32 @@ class Answered(Base):
     UserID = Column(ForeignKey('User.UserID'), primary_key=False, nullable=False, index=True)
     User = relationship("User")
 
+
 t_Student_Module = Table(
     'Student_Module', metadata,
     Column('StudentID', ForeignKey('Student.StudentID'), primary_key=True, nullable=False, index=True),
-    Column('ModuleID', ForeignKey('Module.ModuleID'), primary_key=True, nullable=False, index=True),
+    Column('ModuleID', ForeignKey('CourseModule.ModuleID'), primary_key=True, nullable=False, index=True),
     Column('CourseRep', Boolean, nullable=False)
 )
 
 t_Professor_Module = Table(
     'Professor_Module', metadata,
     Column('ProfessorID', ForeignKey('Professor.ProfessorID'), primary_key=True, nullable=False, index=True),
-    Column('ModuleID', ForeignKey('Module.ModuleID'), primary_key=True, nullable=False, index=True),
+    Column('ModuleID', ForeignKey('CourseModule.ModuleID'), primary_key=True, nullable=False, index=True),
     Column('HeadProfessor', Boolean, nullable=False)
 )
 
 t_Exam_Question = Table(
     'Exam_Question', metadata,
     Column('ExamID', ForeignKey('Exam.ExamID'), primary_key=True, nullable=False, index=True),
-    Column('QuestionTemplateID', ForeignKey('Question.QuestionTemplateID'), primary_key=True, nullable=False, index=True)
+    Column('QuestionTemplateID', ForeignKey('Question.QuestionTemplateID'), primary_key=True, nullable=False,
+           index=True)
 )
 
 t_Variable_Question = Table(
     'Variable_Question', metadata,
     Column('VariableID', ForeignKey('Variable.VariableID'), primary_key=True, nullable=False, index=True),
-    Column('QuestionTemplateID', ForeignKey('Question.QuestionTemplateID'), primary_key=True, nullable=False, index=True),
+    Column('QuestionTemplateID', ForeignKey('Question.QuestionTemplateID'), primary_key=True, nullable=False,
+           index=True),
     Column('QuestionID', ForeignKey('Answered.QuestionID'), primary_key=True, nullable=False, index=True)
 )
-
-
