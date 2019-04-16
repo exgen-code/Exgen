@@ -5,10 +5,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker, relationship
 from sqlalchemy.ext.declarative import declarative_base
 
-# sort this out later
 Base = declarative_base()
-# Create engine when know how to
-# engine = create_engine('mysql+pymysql')
+engine = create_engine('mysql://exgensql:yKH2T&%u~L5<@localhost/EXGenDB')
 
 class User(Base):
     __tablename__ = "User"
