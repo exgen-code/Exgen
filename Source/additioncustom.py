@@ -1,7 +1,7 @@
 import random
 
 
-class addition:
+class custom:
 
     def __init__(self):
         pass
@@ -55,6 +55,6 @@ class addition:
         """Fills the variable dictionary and generates the correct answer
         Returns a tuple containing the filled variable dictionary and the
         correct answer, respectively"""
-        varDict = addition.generateNumbers(varDict)
-        answer = addition.add(varDict)
-        return(varDict, addition.getAnswers(answer))
+        varDict = custom.generateNumbers(varDict)
+        answer = custom.add(varDict)
+        return(varDict, custom.getAnswers(answer))
