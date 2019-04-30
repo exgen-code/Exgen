@@ -86,7 +86,7 @@ def writeAnswers(answers):
     return "\n".join(str(x) for x in returnString)
 
 
-def getQuestion(path):
+def printQuestion(path):
     questionInput = readFile(path)
     print("readFile is equal to", questionInput)
 
@@ -104,8 +104,16 @@ def getQuestion(path):
     return question, answers
 
 
+def getQuestion(path):
+    questionInput = readFile(path)
+    varDict, answer = custom.generate(identifyVariables(questionInput))
+    question = writeQuestion(questionInput, varDict)
+    answers = shuffleAnswers(answer)
+    return question, answers
+
+
 path = 'example1.txt'
-question, answers = getQuestion('example1.txt')
+question, answers = printQuestion('example1.txt')
 print('\n')
 print(question)
 print(answers)
