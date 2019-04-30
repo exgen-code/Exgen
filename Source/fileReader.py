@@ -1,4 +1,4 @@
-from addition import addition
+from custom import custom
 from random import shuffle
 import pprint
 
@@ -95,7 +95,7 @@ def getQuestion(path):
     # Gives the variables dictionary to addition.generate,
     # which returns a tuple containing (filled dictionary of variables,
     # the correct answer to the question)
-    varDict, answer = addition.generate(identifyVariables(questionInput))
+    varDict, answer = custom.generate(identifyVariables(questionInput))
     print("userChangeVariables is equal to", answer)
     pprint.pprint(varDict)
 

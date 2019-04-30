@@ -1,17 +1,19 @@
 import random
 
 
-class addition:
+class custom:
 
     def __init__(self):
         pass
 
+    @staticmethod
     def add(varDict):
         """ Returns the sum of the values with keys
         term1 and term2 in the dictionary
         """
         return varDict['term1'] + varDict['term2']
 
+    @staticmethod
     def getAnswers(correctAnswer):
         """ Creates a dictionary for the answers and generates wrong
         answers that are the right answer plus a random number
@@ -30,6 +32,7 @@ class addition:
         answers[correctAnswer] = True
         return(answers)
 
+    @staticmethod
     def generateNumbers(varDict):
         """Generates random numbers (bounded by minbound and maxbound)
         for every key without a value in the variable dictionary
@@ -51,10 +54,11 @@ class addition:
                                                 50)
         return varDict
 
+    @staticmethod
     def generate(varDict):
         """Fills the variable dictionary and generates the correct answer
         Returns a tuple containing the filled variable dictionary and the
         correct answer, respectively"""
-        varDict = addition.generateNumbers(varDict)
-        answer = addition.add(varDict)
-        return(varDict, addition.getAnswers(answer))
+        varDict = custom.generateNumbers(varDict)
+        answer = custom.add(varDict)
+        return(varDict, custom.getAnswers(answer))
