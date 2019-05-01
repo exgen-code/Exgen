@@ -11,7 +11,12 @@ class custom:
         """ Returns the sum of the values with keys
         term1 and term2 in the dictionary
         """
-        return varDict['term1'] + varDict['term2']
+
+        total = 0
+        for i in varDict:
+            if varDict[i] != varDict['maxbound']:
+                total += int(varDict[i])
+        return total
 
     @staticmethod
     def getAnswers(correctAnswer):
